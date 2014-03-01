@@ -8,7 +8,7 @@ exports.indexpage = function(req, res){
 };
 
 exports.intropage = function (req, res) {
-	res.render ('index', { title: " intro page titel", content: "this is a intropage content"})
+	res.render ('index', { title: " intro page titel", content: "this is an intropage content"})
 };
 
 exports.anypage = function(req, res){
