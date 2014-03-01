@@ -1,0 +1,11 @@
+extends layout
+
+block content
+  h1= title
+  p Welcome to #{title}
+  form(method='post', action='/formpage')
+   input(type="text", name="userinput1")
+   input(type="text", name="userinput2")
+   input(type="submit")
+  
+  p #{inputvalue}
