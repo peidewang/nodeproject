@@ -1,9 +1,4 @@
-function function_name (argument) {
-	// body...
-}
-/*
- * GET home page.
- */
+
 
 exports.indexpage = function(req, res){
   res.render('index', { title: 'Express title', content: 'this is a content' });
