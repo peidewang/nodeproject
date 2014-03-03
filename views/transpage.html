@@ -1,0 +1,51 @@
+<html>
+<head>
+	<style type="text/css">
+	.flow {
+		float: left;
+		padding-right: 3px;
+	}
+	</style>
+
+	<title>Yay Node!</title>
+	<link rel=stylesheet href=styles.css type=text/css>
+	<link rel="stylesheet" href="//code.jquery.com/ui/1.10.4/themes/smoothness/jquery-ui.css">
+	<script src="http://code.jquery.com/jquery-1.9.1.min.js"></script>
+	<script src="//code.jquery.com/ui/1.10.4/jquery-ui.js"></script>
+	<script>
+	$( document ).ready(function() {
+		console.log( "document loaded" );
+		var textString = $('span').text();
+		var aTextTokens = textString.split(' '); 
+		aTextTokens.forEach (function(textToken){
+			var newWord = $( "<div>" + textToken + "</div>" );
+			newWord.addClass('flow');
+			newWord.attr("title", "click to get translation");
+			//newWord.tooltip({content: "some content"});
+			newWord.on('click', function(e)
+			{
+				//alert($( this ).text());
+				
+				$(this).tooltip({content: "Translation in English"});
+  			
+			})
+
+			$("body").append(newWord); 
+		})
+
+		$(function() {
+			$( document ).tooltip();
+		});
+	});
+
+	$( window ).load(function() {
+		console.log( "window loaded" );
+
+	});
+
+	</script>
+</head>
+<body>
+	<span id=yay>Yay! This is a text to translate</span>
+</body>
+</html>
