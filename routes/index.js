@@ -1,7 +1,7 @@
 
 
 exports.indexpage = function(req, res){
-  res.render('index', { title: 'Express title', content: 'this is a content' });
+	res.render('index', { title: 'Express title', content: 'this is a content' });
 };
 
 exports.intropage = function (req, res) {
@@ -14,7 +14,7 @@ exports.anypage = function(req, res){
 
 exports.formpage = function (req, res) {
 	res.render('form', { title: " this is form page", inputvalue: " this is empty inputvalue"});
-	};
+};
 
 exports.handlepost = function (req, res, next) {
 	// body...
@@ -26,3 +26,23 @@ exports.handlepost = function (req, res, next) {
 	res.render('form', {title:"input validated", inputvalue: input1 + " " + input2});
 	next();
 };
+
+exports.trans = function  (req, res) {
+	// body...
+	//res.send(" this is send by trans");
+	var fs  = require('fs');
+	var f = "views/transpage.html";
+	fs.exists(f, function (exists) {
+		if (exists){
+			console.log("the file exists");
+			fs.readFile(f, function (err, data) {
+				if (err) { res.writeHead(500);
+					res.end('Server Error!'); return; }
+					var headers = {'Content-type': 'text/html'};
+					res.writeHead(200, headers);
+					res.end(data);
+				});
+			return;
+		}
+	});
+}; 
