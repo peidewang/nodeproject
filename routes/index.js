@@ -31,7 +31,7 @@ exports.trans = function  (req, res) {
 	// body...
 	//res.send(" this is send by trans");
 	var fs  = require('fs');
-	var f = "views/transpage.html";
+	var f = "index.html";
 	fs.exists(f, function (exists) {
 		if (exists){
 			console.log("the file exists");
