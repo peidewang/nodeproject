@@ -31,6 +31,7 @@ if ('development' == app.get('env')) {
 app.get('/', routes.indexpage);
 app.get('/intropage', routes.intropage);
 app.get('/formpage', routes.formpage);
+app.get('/transpage', routes.trans);
 app.get('/:page', routes.anypage);
 app.get('/users', user.list);
 app.post('/formpage', routes.handlepost, routes.formpage);
